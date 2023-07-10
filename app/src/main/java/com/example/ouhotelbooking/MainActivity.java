@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.ouhotelbooking.R;
 import com.example.ouhotelbooking.fragments.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Hello
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_main);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         Button btnLogin = findViewById(R.id.button);
