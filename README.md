@@ -17,5 +17,6 @@
 - fragment dùng chung: giá phòng + nút đặt phòng (tham khảo app)
 - trang chủ hiện list khách sạn + thanh search
 - sắp xếp khách sạn theo tiêu chí: tên, sao?, gần?
+- thêm avatar cho user (dùng dịch vụ web)
 ### Phase 2
 xử lí các vấn đề về giao diện admin
