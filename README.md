@@ -1,6 +1,6 @@
 # OUHotelBooking
-App quản lí khách sạn 
-Phase 1
+## App quản lí khách sạn 
+### Phase 1
 - user đăng nhập/đăng kí -> [tìm thông tin ks] -> chọn ks
 - user chọn đặt phòng -> chọn loại phòng để đặt -> chọn đặt phòng
 - chọn thời gian đặt phòng (qua đêm, theo giờ hay theo ngày)
@@ -17,4 +17,5 @@ Phase 1
 - fragment dùng chung: giá phòng + nút đặt phòng (tham khảo app)
 - trang chủ hiện list khách sạn + thanh search
 - sắp xếp khách sạn theo tiêu chí: tên, sao?, gần?
-- trang admin (phase 2)
+### Phase 2
+xử lí các vấn đề về giao diện admin
