@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:layoutDescription="@xml/activity_main_scene"
-    tools:context=".MainActivity"
-    android:id="@+id/fragment_container">
+    tools:context=".fragments.AuthFragment"
+    >
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                 android:textSize="60sp" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_login"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -63,7 +62,7 @@
                 app:backgroundTint="@null" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_register"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
