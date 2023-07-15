@@ -6,8 +6,141 @@
     android:layout_height="match_parent"
     android:gravity="center"
     tools:context=".fragments.RegisterFragment">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="REGISTER VIEW"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="ĐĂNG KÝ"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="32dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#f8c291"
+                    android:drawableLeft="@drawable/baseline_person_24"
+                    android:drawablePadding="12sp"
+                    android:ems="10"
+                    android:hint="Tên đăng nhập"
+                    android:inputType="text"
+                    android:padding="20dp"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#f8c291"
+                    android:drawableLeft="@drawable/baseline_lock_24"
+                    android:drawablePadding="12sp"
+                    android:ems="10"
+                    android:hint="Mật khẩu"
+                    android:inputType="text"
+                    android:padding="20dp"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextText5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#f8c291"
+                    android:drawableLeft="@drawable/outline_lock_24"
+                    android:drawablePadding="12sp"
+                    android:ems="10"
+                    android:hint="Xác nhận mật khẩu"
+                    android:inputType="text"
+                    android:padding="20dp"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextText6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#f8c291"
+                    android:drawableLeft="@drawable/outline_face_6_24"
+                    android:drawablePadding="12sp"
+                    android:ems="10"
+                    android:hint="Họ và tên"
+                    android:inputType="text"
+                    android:padding="20dp"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextText7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#f8c291"
+                    android:drawableLeft="@drawable/outline_local_phone_24"
+                    android:drawablePadding="12sp"
+                    android:ems="10"
+                    android:hint="Số điện thoại"
+                    android:inputType="text"
+                    android:padding="20dp"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="#12CBC4"
+                android:padding="24dp"
+                android:text="Đăng ký"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </FrameLayout>
+
 </LinearLayout>
