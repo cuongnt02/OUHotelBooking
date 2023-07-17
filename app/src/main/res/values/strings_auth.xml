@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_title">ou hotel booking</string>
+    <string name="auth_login_button">Đăng Nhập</string>
+    <string name="auth_register_button">Đăng Ký</string>
+    <string name="auth_bg_description">Auth - Start Background</string>
+    <string name="auth_logo_description">Auth - Logo</string>
+</resources>
