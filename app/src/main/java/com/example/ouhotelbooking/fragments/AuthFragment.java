@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,10 +26,16 @@ public class AuthFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_auth, container, false);
 
-        loginButton = view.findViewById(R.id.button_login);
+        loginButton = view.findViewById(R.id.auth_button_login);
         loginButton.setOnClickListener(btn -> {
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
+        });
+
+        registerButton = view.findViewById(R.id.auth_button_register);
+        registerButton.setOnClickListener(btn -> {
+            Toast.makeText(getActivity(), "Register Button Clicked!", Toast.LENGTH_SHORT)
+                    .show();
         });
 
 

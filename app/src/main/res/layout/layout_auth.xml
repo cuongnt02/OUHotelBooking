@@ -1,78 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fragments.AuthFragment"
-    >
+    android:background="@drawable/bg">
 
-    <FrameLayout
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:background="@android:drawable/alert_light_frame"
+        android:contentDescription="@string/auth_logo_description"
+        android:src="@drawable/oulogo"
+        tools:visibility="visible" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView3"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/bg"
-            tools:visibility="visible" />
+            android:layout_marginBottom="100dp"
+            android:fontFamily="@font/charmonman_bold"
+            android:text="@string/auth_title"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#2c2c54"
+            android:textSize="60sp"
+            tools:ignore="TextContrastCheck" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="90dp"
-            android:layout_weight="1"
-            android:background="@android:drawable/alert_light_frame"
-            app:srcCompat="@drawable/oulogo"
-            tools:visibility="visible" />
+        <Button
+            android:id="@+id/auth_button_login"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/background_button"
+            android:text="@string/auth_login_button"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            app:backgroundTint="@null"
+            tools:ignore="TextContrastCheck" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+        <Button
+            android:id="@+id/auth_button_register"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_button"
+            android:text="@string/auth_register_button"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            app:backgroundTint="@null"
+            tools:ignore="TextContrastCheck" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"
-                android:fontFamily="@font/charmonman_bold"
-                android:text="OU Hotel Booking"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="#2c2c54"
-                android:textSize="60sp" />
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/button_login"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/backgrondbutton"
-                android:text="Đăng nhập"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/black"
-                android:textColorLink="@color/black"
-                app:backgroundTint="@null" />
-
-            <Button
-                android:id="@+id/button_register"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/backgrondbutton"
-                android:text="Đăng ký"
-                android:textAllCaps="true"
-                app:backgroundTint="@null" />
-
-        </LinearLayout>
-    </FrameLayout>
-
-</LinearLayout>
+</FrameLayout>

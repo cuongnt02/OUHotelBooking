@@ -1,37 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragments.LoginFragment">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/background" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
+    android:background="@drawable/background"
+    android:gravity="top|center"
+    >
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="50dp"
-                android:gravity="center"
-                android:text="ĐĂNG NHẬP"
+                android:layout_margin="50dp"
+                android:text="@string/login_title"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="35sp"
                 android:textStyle="bold" />
@@ -44,53 +24,43 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/login_edit_text_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="10dp"
                     android:background="#f8c291"
-                    android:drawableLeft="@drawable/baseline_person_24"
+                    android:drawableStart="@drawable/baseline_person_24"
                     android:drawablePadding="12sp"
-                    android:ems="10"
-                    android:hint="Tên đăng nhập"
+                    android:hint="@string/login_username_hint"
                     android:inputType="text"
                     android:padding="20dp"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                     />
 
                 <EditText
-                    android:id="@+id/editTextText2"
+                    android:id="@+id/login_edit_text_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="10dp"
                     android:background="#f8c291"
-                    android:drawableLeft="@drawable/baseline_lock_24"
+                    android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="12sp"
-                    android:ems="10"
-                    android:hint="Mật khẩu"
-                    android:inputType="text"
+                    android:hint="@string/login_password_hint"
+                    android:inputType="textPassword"
                     android:padding="20dp"
                     android:textColor="@color/white" />
 
             </LinearLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/login_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="#12CBC4"
                 android:padding="24dp"
-                android:text="Đăng nhập"
+                android:text="@string/login_button_text"
                 android:textSize="24sp" />
 
-        </LinearLayout>
-    </FrameLayout>
 
 </LinearLayout>
