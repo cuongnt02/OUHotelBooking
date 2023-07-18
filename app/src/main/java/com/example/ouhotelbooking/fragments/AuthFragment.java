@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.ouhotelbooking.R;
 import com.example.ouhotelbooking.controllers.login.LoginActivity;
+import com.example.ouhotelbooking.controllers.register.RegisterActivity;
 
 
 public class AuthFragment extends Fragment {
@@ -34,8 +35,8 @@ public class AuthFragment extends Fragment {
 
         registerButton = view.findViewById(R.id.auth_button_register);
         registerButton.setOnClickListener(btn -> {
-            Toast.makeText(getActivity(), "Register Button Clicked!", Toast.LENGTH_SHORT)
-                    .show();
+            Intent intent = new Intent(getActivity(), RegisterActivity.class);
+            startActivity(intent);
         });
 
 

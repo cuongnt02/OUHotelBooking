@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="register_title">ĐĂNG KÝ</string>
+    <string name="register_edit_text_username">Tên đăng nhập</string>
+    <string name="register_edit_text_password">Mật khẩu</string>
+    <string name="register_edit_text_confirm">Xác nhận mật khẩu</string>
+    <string name="register_edit_text_phone">Số điện thoại</string>
+    <string name="register_edit_text_name">Họ và tên</string>
+    <string name="register_button">Đăng ký</string>
+</resources>
