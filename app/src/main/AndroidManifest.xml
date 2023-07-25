@@ -26,6 +26,9 @@
         <activity android:name=".controllers.register.RegisterActivity">
 
         </activity>
+        <activity android:name=".controllers.authenticated.search.SearchActivity">
+
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
