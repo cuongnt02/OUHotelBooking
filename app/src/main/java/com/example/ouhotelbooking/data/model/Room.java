@@ -1,16 +1,12 @@
-package com.example.ouhotelbooking.models;
+package com.example.ouhotelbooking.data.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Service {
+public class Room {
     private int id;
     private String name;
-    private String icon;
+    private String description;
 }

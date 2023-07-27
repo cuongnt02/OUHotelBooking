@@ -1,4 +1,4 @@
-package com.example.ouhotelbooking.models;
+package com.example.ouhotelbooking.data.model;
 
 
 import lombok.AllArgsConstructor;
