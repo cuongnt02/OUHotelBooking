@@ -1,14 +1,17 @@
 package com.example.ouhotelbooking.controllers.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ouhotelbooking.R;
+import com.example.ouhotelbooking.controllers.HotelDetailActivity;
 import com.example.ouhotelbooking.data.model.Hotel;
 
 import java.util.List;
@@ -30,6 +33,8 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelHolder> {
         return new HotelHolder(view);
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull HotelHolder holder, int position) {
         Hotel hotel = hotels.get(position);
@@ -44,5 +49,6 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelHolder> {
     public void setHotels(List<Hotel> hotelList) {
         hotels = hotelList;
     }
+
 
 }
