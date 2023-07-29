@@ -2,27 +2,23 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     >
     <TextView
-        android:id="@+id/hotel_detail_title"
+        android:id="@+id/layout_room_list_item_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="TITLE"
-        android:textSize="40sp"
+        tools:text="Title"
+        android:layout_margin="5dp"
         />
     <TextView
-        android:id="@+id/hotel_detail_address"
+        android:id="@+id/layout_room_list_item_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="ADDRESS"
+        tools:text="Address"
+        android:layout_margin="5dp"
         />
-    <Button
-        android:id="@+id/booking_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/layout_booking_book_button" />
 
 </LinearLayout>

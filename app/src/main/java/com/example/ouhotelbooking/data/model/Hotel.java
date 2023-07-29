@@ -7,6 +7,7 @@ public class Hotel {
     private String name;
     private String address;
 
+
     public Hotel() {
     }
 

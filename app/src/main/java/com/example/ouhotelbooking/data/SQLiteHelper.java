@@ -6,7 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.ouhotelbooking.data.model.Hotel;
+import com.example.ouhotelbooking.data.model.Room;
 import com.example.ouhotelbooking.data.schema.HotelDb;
+import com.example.ouhotelbooking.data.schema.RoomDb;
 
 import java.util.ConcurrentModificationException;
 
@@ -22,6 +24,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             + HotelDb.COLUMN_ADDRESS + " varchar(200)"
             + ");";
 
+    public static final String CREATE_TABLE_ROOM = "create table "
+            + RoomDb.TABLE_ROOM + " ("
+            + "_id integer primary key autoincrement, "
+            + RoomDb.COLUMN_TYPE + " varchar(50), "
+            + RoomDb.COLUMN_DESC + " text, "
+            + RoomDb.COLUMN_FK_HOTEL + " integer, "
+            + "foreign key(" + RoomDb.COLUMN_FK_HOTEL + ")"
+            + " references " + HotelDb.TABLE_HOTEL
+            +"(" + HotelDb.COLUMN_ID + ")"
+            + ");";
+
     public SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -29,6 +42,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_TABLE_HOTEL);
+        sqLiteDatabase.execSQL(CREATE_TABLE_ROOM);
     }
 
     @Override
@@ -37,6 +51,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "Upgrading database from version " + oldVersion + " to "
         + newVersion + ", which will destroy all new data.");
         sqLiteDatabase.execSQL("drop table if exists " + HotelDb.TABLE_HOTEL);
+        sqLiteDatabase.execSQL("drop table if exists " + RoomDb.TABLE_ROOM);
         onCreate(sqLiteDatabase);
     }
 }
