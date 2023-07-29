@@ -3,11 +3,11 @@ package com.example.ouhotelbooking.utils;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-public class DatabaseUtils {
+public class DbUtils {
 
     private SQLiteDatabase db;
 
-    public DatabaseUtils(SQLiteDatabase database) {
+    public DbUtils(SQLiteDatabase database) {
         db = database;
     }
 

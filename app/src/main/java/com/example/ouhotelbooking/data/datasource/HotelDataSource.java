@@ -1,9 +1,7 @@
 package com.example.ouhotelbooking.data.datasource;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.ouhotelbooking.data.SQLiteHelper;
 import com.example.ouhotelbooking.data.model.Hotel;
 import com.example.ouhotelbooking.data.schema.HotelDb;
-import com.example.ouhotelbooking.utils.DatabaseUtils;
+import com.example.ouhotelbooking.utils.DbUtils;
 import com.example.ouhotelbooking.utils.RangeSupressException;
 
 import java.util.ArrayList;
@@ -52,7 +50,7 @@ public class HotelDataSource {
     }
 
     public Hotel getHotel(int hotelId) {
-        DatabaseUtils dbUtils = new DatabaseUtils(this.database);
+        DbUtils dbUtils = new DbUtils(this.database);
         try(Cursor cursor = dbUtils.queryAllColumns(HotelDb.TABLE_HOTEL,
                 HotelDb.COLUMN_ID+"=?",
                 new String[]{Integer.toString(hotelId)})) {
@@ -69,7 +67,7 @@ public class HotelDataSource {
 
     public List<Hotel> getHotels() {
         List<Hotel> hotels = new ArrayList<>();
-        DatabaseUtils dbUtils = new DatabaseUtils(this.database);
+        DbUtils dbUtils = new DbUtils(this.database);
         try (Cursor cursor = dbUtils.queryAllColumns(HotelDb.TABLE_HOTEL, null, null)) {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
