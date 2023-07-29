@@ -41,6 +41,24 @@ public class RoomDataSource {
         return getRoom((int) insertId);
     }
 
+    public List<Room> getRooms(int hotelId) {
+        List<Room> rooms = new ArrayList<>();
+        DbUtils dbUtils = new DbUtils(database);
+        try (Cursor cursor = dbUtils.queryAllColumns(RoomDb.TABLE_ROOM,
+                RoomDb.COLUMN_FK_HOTEL + "=?",
+                new String[]{Integer.toString(hotelId)})) {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                Room room = cursorToRoom(cursor);
+                rooms.add(room);
+                cursor.moveToNext();
+            }
+        } catch (RangeSupressException e) {
+            throw new RuntimeException(e);
+        }
+        return rooms;
+    }
+
     public Room getRoom(int roomId) {
         DbUtils dbUtils = new DbUtils(this.database);
         try (Cursor cursor = dbUtils.queryAllColumns(RoomDb.TABLE_ROOM,
