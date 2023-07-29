@@ -32,6 +32,10 @@
         </activity>
         <activity android:name=".controllers.RoomDetailActivity">
         </activity>
+        <activity android:name=".controllers.BookingDateActivity">
+        </activity>
+        <activity android:name=".controllers.BookingDetailActivity">
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

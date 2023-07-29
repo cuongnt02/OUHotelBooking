@@ -40,7 +40,7 @@ public class HotelDetailActivity extends AppCompatActivity {
         hotelDetailTitle.setText(hotel.getName());
         hotelDetailAddress.setText(hotel.getAddress());
         hotelDetailButton.setOnClickListener(btn -> {
-            Intent intent = new Intent(this , RoomChoiceActivity.class);
+            Intent intent = RoomChoiceActivity.createIntent(this, hotel.getId());
             startActivity(intent);
         });
     }
