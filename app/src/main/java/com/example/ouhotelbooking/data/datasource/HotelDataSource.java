@@ -36,7 +36,16 @@ public class HotelDataSource {
         int id = hotel.getId();
         database.delete(HotelDb.TABLE_HOTEL,
                 HotelDb.COLUMN_ID + "=?",
-                new String[] {Integer.toString(hotel.getId())});
+                new String[] {Integer.toString(id)});
+    }
+
+    public void updateHotel(Hotel hotel) {
+        int id = hotel.getId();
+        ContentValues contentValues = createHotelValues(hotel);
+        database.update(HotelDb.TABLE_HOTEL,
+                contentValues,
+                HotelDb.COLUMN_ID + "=?",
+                new String[]{Integer.toString(id)});
     }
 
     public Hotel createHotel(Hotel hotel) {
