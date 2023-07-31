@@ -11,18 +11,19 @@ import com.example.ouhotelbooking.R;
 import com.example.ouhotelbooking.controllers.HotelDetailActivity;
 import com.example.ouhotelbooking.data.model.Hotel;
 
-public class HotelHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class HotelHolder extends RecyclerView.ViewHolder {
 
         private TextView titleTextView;
         private TextView addressTextView;
 
         private Hotel hotel;
+        private View view;
 
         public HotelHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
             titleTextView = (TextView) itemView.findViewById(R.id.layout_search_list_item_title);
             addressTextView = (TextView) itemView.findViewById(R.id.layout_search_list_item_address);
+            this.view = itemView;
         }
 
         public void bindHotel(Hotel hotel) {
@@ -31,9 +32,11 @@ public class HotelHolder extends RecyclerView.ViewHolder implements View.OnClick
             addressTextView.setText(this.hotel.getAddress());
         }
 
-        @Override
-        public void onClick(View view) {
-            Intent intent = HotelDetailActivity.createIntent(view.getContext(), hotel.getId());
-            view.getContext().startActivity(intent);
+        public Hotel getHotel() {
+            return this.hotel;
+        }
+
+        public View getView() {
+            return this.view;
         }
     }
