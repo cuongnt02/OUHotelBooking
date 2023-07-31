@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OUHotelBooking</string>
+    <string name="edit_hotel_address_hint">Enter Hotel Address Here...</string>
 </resources>
