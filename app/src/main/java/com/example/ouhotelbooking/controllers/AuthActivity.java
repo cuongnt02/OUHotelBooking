@@ -10,10 +10,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ouhotelbooking.R;
+import com.example.ouhotelbooking.controllers.admin.AdminActivity;
 
 public class AuthActivity extends AppCompatActivity {
     private Button loginButton;
     private Button registerButton;
+    private Button adminButton;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +34,11 @@ public class AuthActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        adminButton = findViewById(R.id.test_button_admin);
+        adminButton.setOnClickListener(btn -> {
+            Intent intent = new Intent(this, AdminActivity.class);
+            startActivity(intent);
+        });
     }
 
 
