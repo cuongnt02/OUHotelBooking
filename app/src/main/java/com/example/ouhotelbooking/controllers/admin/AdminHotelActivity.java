@@ -1,7 +1,10 @@
 package com.example.ouhotelbooking.controllers.admin;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
@@ -14,6 +17,7 @@ import com.example.ouhotelbooking.controllers.adapters.HotelAdapter;
 import com.example.ouhotelbooking.data.datasource.HotelDataSource;
 import com.example.ouhotelbooking.data.model.Hotel;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class AdminHotelActivity extends AppCompatActivity {

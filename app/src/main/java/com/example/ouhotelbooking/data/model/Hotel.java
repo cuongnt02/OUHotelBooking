@@ -5,24 +5,17 @@ import androidx.annotation.NonNull;
 public class Hotel {
     private int id;
     private String name;
-    private String address;
+    private String description;
+    private byte[] picture;
+
 
 
     public Hotel() {
     }
 
-    public Hotel(String name, String address) {
+    public Hotel(String name) {
         this.name = name;
-        this.address = address;
 
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getName() {
@@ -45,6 +38,22 @@ public class Hotel {
 
     public int getId() {
         return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 }
 

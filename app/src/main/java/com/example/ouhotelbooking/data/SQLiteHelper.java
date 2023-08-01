@@ -20,8 +20,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String CREATE_TABLE_HOTEL = "create table "
             + HotelDb.TABLE_HOTEL + " ("
             + "_id integer primary key autoincrement, "
-            + HotelDb.COLUMN_NAME + " varchar(50) , "
-            + HotelDb.COLUMN_ADDRESS + " varchar(200)"
+            + HotelDb.COLUMN_NAME + " varchar(50),"
+            + HotelDb.COLUMN_DESCRIPTION + " text,"
+            + HotelDb.COLUMN_PICTURE + " longblob"
             + ");";
 
     public static final String CREATE_TABLE_ROOM = "create table "

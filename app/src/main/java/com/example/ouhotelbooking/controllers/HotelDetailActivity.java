@@ -38,7 +38,6 @@ public class HotelDetailActivity extends AppCompatActivity {
         hotelDetailAddress = (TextView) findViewById(R.id.hotel_detail_address);
         hotelDetailButton = (Button) findViewById(R.id.booking_button);
         hotelDetailTitle.setText(hotel.getName());
-        hotelDetailAddress.setText(hotel.getAddress());
         hotelDetailButton.setOnClickListener(btn -> {
             Intent intent = RoomChoiceActivity.createIntent(this, hotel.getId());
             startActivity(intent);
