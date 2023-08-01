@@ -12,17 +12,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ouhotelbooking.R;
 import com.example.ouhotelbooking.controllers.HotelDetailActivity;
+import com.example.ouhotelbooking.controllers.admin.EditHotelActivity;
 import com.example.ouhotelbooking.data.model.Hotel;
 
 import java.util.List;
 
 public class HotelAdapter extends RecyclerView.Adapter<HotelHolder> {
-
     private List<Hotel> hotels;
     private Context context;
+    private boolean admin = false;
 
     public HotelAdapter(Context context) {
         this.context = context;
+    }
+
+    public HotelAdapter(Context context, boolean admin) {
+        this.context = context;
+        this.admin = admin;
     }
 
     @NonNull
@@ -33,12 +39,21 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelHolder> {
         return new HotelHolder(view);
     }
 
-
-
     @Override
     public void onBindViewHolder(@NonNull HotelHolder holder, int position) {
         Hotel hotel = hotels.get(position);
         holder.bindHotel(hotel);
+        holder.getView().setOnClickListener(v -> {
+            Intent intent;
+            if (admin) {
+                intent = EditHotelActivity.createIntent(this.context, hotel.getId());
+                context.startActivity(intent);
+            }
+            else {
+                intent = HotelDetailActivity.createIntent(this.context, hotel.getId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -49,6 +64,5 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelHolder> {
     public void setHotels(List<Hotel> hotelList) {
         hotels = hotelList;
     }
-
 
 }

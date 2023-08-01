@@ -57,6 +57,12 @@
             app:backgroundTint="@null"
             tools:ignore="TextContrastCheck" />
 
+        <Button
+            android:id="@+id/test_button_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test_btn_admin" />
+
     </LinearLayout>
 
 </FrameLayout>

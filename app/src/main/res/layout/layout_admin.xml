@@ -4,11 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="ADMIN VIEW"
         android:textSize="52sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="USER MANAGER"/>
+    <Button
+        android:id="@+id/admin_hotel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HOTEL MANAGER"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CATEGORY MANAGER" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ROOM MANAGER" />
 
 </LinearLayout>

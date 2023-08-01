@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    <TextView
-        android:id="@+id/room_detail_type"
+    <EditText
+        android:id="@+id/admin_hotel_edit_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/room_detail_description"
+        android:hint="@string/enter_hotel_name_here"/>
+
+    <EditText
+        android:id="@+id/admin_hotel_edit_address"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_hotel_address_hint"/>
 
     <Button
-        android:id="@+id/pick_date_button"
+        android:id="@+id/admin_hotel_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Pick Date"/>
+        android:text="delete"/>
 
 </LinearLayout>

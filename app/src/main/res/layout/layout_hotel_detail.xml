@@ -20,8 +20,9 @@
         tools:text="ADDRESS"
         />
     <Button
+        android:id="@+id/booking_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đặt phòng" />
+        android:text="@string/layout_booking_book_button" />
 
 </LinearLayout>

@@ -28,6 +28,20 @@
         </activity>
         <activity android:name=".controllers.HotelDetailActivity">
         </activity>
+        <activity android:name=".controllers.RoomChoiceActivity">
+        </activity>
+        <activity android:name=".controllers.RoomDetailActivity">
+        </activity>
+        <activity android:name=".controllers.BookingDateActivity">
+        </activity>
+        <activity android:name=".controllers.BookingDetailActivity">
+        </activity>
+        <activity android:name=".controllers.admin.AdminActivity">
+        </activity>
+        <activity android:name=".controllers.admin.AdminHotelActivity">
+        </activity>
+        <activity android:name=".controllers.admin.EditHotelActivity">
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
