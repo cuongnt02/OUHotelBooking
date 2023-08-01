@@ -1,10 +1,13 @@
 package com.example.ouhotelbooking.data.datasource;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.ouhotelbooking.data.SQLiteHelper;
 import com.example.ouhotelbooking.data.model.Hotel;
@@ -13,6 +16,7 @@ import com.example.ouhotelbooking.utils.DbUtils;
 import com.example.ouhotelbooking.utils.RangeSupressException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HotelDataSource {
@@ -93,12 +97,14 @@ public class HotelDataSource {
     private Hotel cursorToHotel(Cursor cursor) throws RangeSupressException {
         int id = cursor.getInt(getIndex(cursor, HotelDb.COLUMN_ID));
         String name = cursor.getString(getIndex(cursor, HotelDb.COLUMN_NAME));
-        String address = cursor.getString(getIndex(cursor, HotelDb.COLUMN_ADDRESS));
+        String description = cursor.getString(getIndex(cursor, HotelDb.COLUMN_DESCRIPTION));
+        byte[] image = cursor.getBlob(getIndex(cursor, HotelDb.COLUMN_PICTURE));
 
         Hotel hotel = new Hotel();
         hotel.setId(id);
         hotel.setName(name);
-        hotel.setAddress(address);
+        hotel.setDescription(description);
+        hotel.setPicture(image);
         return hotel;
     }
 
@@ -113,7 +119,8 @@ public class HotelDataSource {
     private ContentValues createHotelValues(Hotel hotel) {
         ContentValues values = new ContentValues();
         values.put(HotelDb.COLUMN_NAME, hotel.getName());
-        values.put(HotelDb.COLUMN_ADDRESS, hotel.getAddress());
+        values.put(HotelDb.COLUMN_DESCRIPTION, hotel.getDescription());
+        values.put(HotelDb.COLUMN_PICTURE, hotel.getPicture());
         return values;
     }
 
