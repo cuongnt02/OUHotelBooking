@@ -1,7 +1,10 @@
 package com.example.ouhotelbooking.controllers.adapters;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,7 @@ import com.example.ouhotelbooking.controllers.HotelDetailActivity;
 import com.example.ouhotelbooking.controllers.admin.EditHotelActivity;
 import com.example.ouhotelbooking.data.model.Hotel;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class HotelAdapter extends RecyclerView.Adapter<HotelHolder> {
