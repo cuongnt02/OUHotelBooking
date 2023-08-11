@@ -51,12 +51,11 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelHolder> {
             Intent intent;
             if (admin) {
                 intent = EditHotelActivity.createIntent(this.context, hotel.getId());
-                context.startActivity(intent);
             }
             else {
                 intent = HotelDetailActivity.createIntent(this.context, hotel.getId());
-                context.startActivity(intent);
             }
+            context.startActivity(intent);
         });
     }
 

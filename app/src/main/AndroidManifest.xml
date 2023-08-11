@@ -42,6 +42,10 @@
         </activity>
         <activity android:name=".controllers.admin.EditHotelActivity">
         </activity>
+        <activity android:name=".controllers.admin.AdminRoomActivity">
+        </activity>
+        <activity android:name=".controllers.admin.EditRoomActivity">
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

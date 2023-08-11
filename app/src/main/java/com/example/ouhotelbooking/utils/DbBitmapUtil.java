@@ -3,11 +3,14 @@ package com.example.ouhotelbooking.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import androidx.annotation.Nullable;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class DbBitmapUtil {
     public static byte[] getBytes(Bitmap bitmap) {
+        if (bitmap == null) return null;
         try (ByteArrayOutputStream stream = new ByteArrayOutputStream()) {
             bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
             return stream.toByteArray();
@@ -17,6 +20,9 @@ public class DbBitmapUtil {
     }
 
     public static Bitmap getImage(byte[] image) {
-        return BitmapFactory.decodeByteArray(image, 0, image.length);
+        if (image != null) {
+            return BitmapFactory.decodeByteArray(image, 0, image.length);
+        }
+        else return null;
     }
 }

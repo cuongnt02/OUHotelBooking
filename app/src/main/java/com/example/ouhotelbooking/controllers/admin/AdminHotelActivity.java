@@ -26,18 +26,27 @@ public class AdminHotelActivity extends AppCompatActivity {
     private HotelDataSource hotelDataSource;
     private HotelAdapter adapter;
     private Button createHotelButton;
-    @Override
-    protected void onResume() {
-        hotelDataSource.open();
-        List<Hotel> hotels = hotelDataSource.getHotels();
-        if (adapter == null) {
-            adapter = new HotelAdapter(this, true);
-        } else {
-            adapter.notifyDataSetChanged();
-        }
-        adapter.setHotels(hotels);
-        hotelRecyclerView.setAdapter(adapter);
+    private List<Hotel> hotels;
 
+    @Override
+    protected void onStart() {
+        Log.d(TAG, "onStart: ON START CALLED");
+        hotelDataSource.open();
+        hotels = hotelDataSource.getHotels();
+        Log.d(TAG, "onStart: HOTELS SIZE: " + hotels.size());
+        if (adapter == null) {
+            Log.d(TAG, "onStart: NULL ADAPTER");
+            adapter = new HotelAdapter(this, true);
+            adapter.setHotels(hotels);
+        } else {
+            adapter.setHotels(hotels);
+        }
+        hotelRecyclerView.setAdapter(adapter);
+        super.onStart();
+    }
+
+    protected void onResume() {
+        Log.d(TAG, "onResume: ON RESUME CALLED");
         super.onResume();
     }
 
@@ -56,7 +65,7 @@ public class AdminHotelActivity extends AppCompatActivity {
         hotelRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         createHotelButton = (Button) findViewById(R.id.admin_create_hotel);
         createHotelButton.setOnClickListener(btn -> {
-            Intent intent = new Intent(this, EditHotelActivity.class);
+            Intent intent = EditHotelActivity.createIntent(this, 0);
             startActivity(intent);
         });
     }
