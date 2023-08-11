@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.example.ouhotelbooking.data.model.Hotel;
 import com.example.ouhotelbooking.data.model.Room;
+import com.example.ouhotelbooking.data.schema.BookingDb;
 import com.example.ouhotelbooking.data.schema.HotelDb;
 import com.example.ouhotelbooking.data.schema.RoomDb;
 
@@ -39,6 +40,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             +"(" + HotelDb.COLUMN_ID + ") on delete cascade"
             + ");";
 
+    public static final String CREATE_TABLE_BOOKING = "create table "
+            + BookingDb.TABLE_BOOKING + " ("
+            + "_id integer primary key autoincrement, "
+            + BookingDb.COLUMN_CHECK_IN + " text, "
+            + BookingDb.COLUMN_CHECK_OUT + " text, "
+            + BookingDb.COLUMN_TOTAL_PRICE + " double, "
+            + "foreign key(" + BookingDb.COLUMN_FK_ROOM + ")"
+            + " references " + RoomDb.TABLE_ROOM
+            + "(" + RoomDb.COLUMN_ID + ") on delete cascade"
+            + ");";
+
     public SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -47,6 +59,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_TABLE_HOTEL);
         sqLiteDatabase.execSQL(CREATE_TABLE_ROOM);
+        sqLiteDatabase.execSQL(CREATE_TABLE_BOOKING);
     }
 
     @Override
@@ -56,6 +69,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         + newVersion + ", which will destroy all new data.");
         sqLiteDatabase.execSQL("drop table if exists " + HotelDb.TABLE_HOTEL);
         sqLiteDatabase.execSQL("drop table if exists " + RoomDb.TABLE_ROOM);
+        sqLiteDatabase.execSQL("drop table if exists " + BookingDb.TABLE_BOOKING);
         onCreate(sqLiteDatabase);
     }
 }
