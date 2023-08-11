@@ -30,15 +30,16 @@ import java.util.Arrays;
 public class EditHotelActivity extends AppCompatActivity {
 
     public static final String EXTRA_HOTEL = "com.example.ouhotelbooking.hotel";
+    public static final String TAG_DEBUG = "com.example.ouhotelbooking.debug";
     private EditText nameEditText;
     private EditText descriptionEditText;
     private HotelDataSource hotelDataSource;
     private Button deleteHotel;
+    private Button editRoomButton;
     private ImageView imageView;
     private Button pickImageButton;
     private Bitmap bitmap;
     private Hotel hotel;
-
 
 
     public static Intent createIntent(Context packageContext, int hotelId) {
@@ -50,35 +51,35 @@ public class EditHotelActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (imageView.getDrawable() != null)
+            bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         hotelDataSource.open();
     }
 
     @Override
-    protected synchronized void onDestroy() {
-        super.onDestroy();
-        hotelDataSource.open();
+    protected void onStop() {
         if (hotel == null) {
             hotel = new Hotel();
-            hotel.setName(nameEditText.getText().toString());
-            hotel.setDescription(descriptionEditText.getText().toString());
-            bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-            hotel.setPicture(DbBitmapUtil.getBytes(bitmap));
-            hotelDataSource.createHotel(hotel);
         }
-        else {
-            hotel.setName(nameEditText.getText().toString());
-            hotel.setDescription(descriptionEditText.getText().toString());
-            bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+        hotel.setName(nameEditText.getText().toString());
+        hotel.setDescription(descriptionEditText.getText().toString());
+        if (bitmap != null)
             hotel.setPicture(DbBitmapUtil.getBytes(bitmap));
-            hotelDataSource.updateHotel(hotel);
-        }
+
+        super.onStop();
         hotelDataSource.close();
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onDestroy() {
+        hotelDataSource.open();
+        if (hotel.getId() == 0) {
+            hotelDataSource.createHotel(hotel);
+        }
+        else
+            hotelDataSource.updateHotel(hotel);
         hotelDataSource.close();
+        super.onDestroy();
     }
 
     @Override
@@ -94,8 +95,9 @@ public class EditHotelActivity extends AppCompatActivity {
         deleteHotel.setVisibility(View.INVISIBLE);
         pickImageButton = (Button) findViewById(R.id.admin_hotel_pick_image);
         imageView = (ImageView) findViewById(R.id.admin_hotel_edit_image);
+        editRoomButton = (Button) findViewById(R.id.admin_hotel_room_edit);
 
-        int id =  this.getIntent().getIntExtra(EXTRA_HOTEL, 0);
+        int id = this.getIntent().getIntExtra(EXTRA_HOTEL, 0);
         hotel = hotelDataSource.getHotel(id);
         if (id != 0) {
             nameEditText.setText(hotel.getName());
@@ -114,6 +116,11 @@ public class EditHotelActivity extends AppCompatActivity {
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(intent, 0);
         });
+        editRoomButton.setOnClickListener(btn -> {
+            Intent intent = AdminRoomActivity.createIntent(this, hotel.getId());
+            startActivity(intent);
+        });
+        hotelDataSource.close();
     }
 
     @Override

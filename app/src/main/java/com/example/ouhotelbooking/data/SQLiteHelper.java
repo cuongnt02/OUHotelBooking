@@ -28,12 +28,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String CREATE_TABLE_ROOM = "create table "
             + RoomDb.TABLE_ROOM + " ("
             + "_id integer primary key autoincrement, "
+            + RoomDb.COLUMN_TITLE + " varchar(100),"
             + RoomDb.COLUMN_TYPE + " varchar(50), "
             + RoomDb.COLUMN_DESC + " text, "
             + RoomDb.COLUMN_FK_HOTEL + " integer, "
+            + RoomDb.COLUMN_PRICE + " double, "
+            + RoomDb.COLUMN_PICTURE + " longblob,"
             + "foreign key(" + RoomDb.COLUMN_FK_HOTEL + ")"
             + " references " + HotelDb.TABLE_HOTEL
-            +"(" + HotelDb.COLUMN_ID + ")"
+            +"(" + HotelDb.COLUMN_ID + ") on delete cascade"
             + ");";
 
     public SQLiteHelper(Context context) {

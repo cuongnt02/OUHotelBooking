@@ -48,7 +48,7 @@ public class RoomChoiceActivity extends AppCompatActivity {
         setContentView(R.layout.layout_room_list);
         roomDataSource = new RoomDataSource(this);
         roomDataSource.open();
-        rooms = roomDataSource.getRooms(this.getIntent().getIntExtra(EXTRA_HOTEL, 0));
+        rooms = roomDataSource.getHotelRooms(this.getIntent().getIntExtra(EXTRA_HOTEL, 0));
 
         recyclerView = (RecyclerView) findViewById(R.id.layout_room_list_list);
         roomAdapter = new RoomAdapter(this);

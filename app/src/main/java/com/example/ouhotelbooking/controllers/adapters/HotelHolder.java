@@ -40,8 +40,8 @@ public class HotelHolder extends RecyclerView.ViewHolder {
             this.hotel = hotel;
             titleTextView.setText(this.hotel.getName());
             addressTextView.setText(this.hotel.getDescription());
-            Log.d(TAG, "bindHotel: " + Arrays.toString(hotel.getPicture()));
             imageView.setImageBitmap(DbBitmapUtil.getImage(this.hotel.getPicture()));
+            Log.d(TAG, "bindHotel: Bitmap: " + Arrays.toString(this.hotel.getPicture()));
         }
 
         public Hotel getHotel() {

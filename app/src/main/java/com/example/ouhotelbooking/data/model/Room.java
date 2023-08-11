@@ -9,16 +9,20 @@ import lombok.Setter;
 
 public class Room {
     private int id;
+    private String title;
     private String type;
     private String description;
+    private double price;
+    private byte[] picture;
     private int hotelId;
 
     public Room () {}
 
-    public Room(String type, String description, int hotelId) {
+    public Room(String type, String description, int hotelId, double price) {
         this.type = type;
         this.description = description;
         this.hotelId = hotelId;
+        this.price = price;
     }
 
     public int getId() {
@@ -51,5 +55,29 @@ public class Room {
 
     public void setHotelId(int hotelId) {
         this.hotelId = hotelId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

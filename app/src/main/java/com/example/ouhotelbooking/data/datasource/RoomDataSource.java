@@ -41,6 +41,15 @@ public class RoomDataSource {
         return getRoom((int) insertId);
     }
 
+    public void updateRoom(Room room) {
+        ContentValues contentValues = createRoomValues(room);
+        database.update(RoomDb.TABLE_ROOM, contentValues,
+                RoomDb.COLUMN_ID + "=?",
+                new String[]{Integer.toString(room.getId())});
+
+    }
+
+
     public List<Room> getRooms(int hotelId) {
         List<Room> rooms = new ArrayList<>();
         DbUtils dbUtils = new DbUtils(database);
@@ -62,7 +71,7 @@ public class RoomDataSource {
     public Room getRoom(int roomId) {
         DbUtils dbUtils = new DbUtils(this.database);
         try (Cursor cursor = dbUtils.queryAllColumns(RoomDb.TABLE_ROOM,
-                RoomDb.COLUMN_ID+"=?",
+                RoomDb.COLUMN_ID + "=?",
                 new String[]{Integer.toString(roomId)})) {
             cursor.moveToFirst();
             if (cursor.getCount() == 0) {
@@ -90,16 +99,41 @@ public class RoomDataSource {
         return rooms;
     }
 
+    public List<Room> getHotelRooms(int hotelId) {
+        List<Room> rooms = new ArrayList<>();
+        DbUtils dbUtils = new DbUtils(this.database);
+        try (Cursor cursor = dbUtils.queryAllColumns(RoomDb.TABLE_ROOM,
+                RoomDb.COLUMN_FK_HOTEL + "=?",
+                new String[]{Integer.toString(hotelId)})) {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                Room room = cursorToRoom(cursor);
+                rooms.add(room);
+                cursor.moveToNext();
+            }
+        } catch (RangeSupressException e) {
+            throw new RuntimeException(e);
+        }
+        return rooms;
+
+    }
+
     private Room cursorToRoom(Cursor cursor) throws RangeSupressException {
         int id = cursor.getInt(getIndex(cursor, RoomDb.COLUMN_ID));
         String type = cursor.getString(getIndex(cursor, RoomDb.COLUMN_TYPE));
         String description = cursor.getString(getIndex(cursor, RoomDb.COLUMN_DESC));
+        double price = cursor.getDouble(getIndex(cursor, RoomDb.COLUMN_PRICE));
+        byte[] roomPicture = cursor.getBlob(getIndex(cursor, RoomDb.COLUMN_PICTURE));
         int hotelId = cursor.getInt(getIndex(cursor, RoomDb.COLUMN_FK_HOTEL));
+        String title = cursor.getString(getIndex(cursor, RoomDb.COLUMN_TITLE));
 
         Room room = new Room();
         room.setId(id);
+        room.setTitle(title);
         room.setType(type);
         room.setDescription(description);
+        room.setPrice(price);
+        room.setPicture(roomPicture);
         room.setHotelId(hotelId);
         return room;
     }
@@ -114,8 +148,11 @@ public class RoomDataSource {
 
     private ContentValues createRoomValues(Room room) {
         ContentValues values = new ContentValues();
+        values.put(RoomDb.COLUMN_TITLE, room.getTitle());
         values.put(RoomDb.COLUMN_TYPE, room.getType());
         values.put(RoomDb.COLUMN_DESC, room.getDescription());
+        values.put(RoomDb.COLUMN_PRICE, room.getPrice());
+        values.put(RoomDb.COLUMN_PICTURE, room.getPicture());
         values.put(RoomDb.COLUMN_FK_HOTEL, room.getHotelId());
         return values;
     }
