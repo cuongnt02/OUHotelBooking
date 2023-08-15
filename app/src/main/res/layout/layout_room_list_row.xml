@@ -32,6 +32,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/room_single" />
+
+            <TextView
+                android:id="@+id/layout_room_list_item_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/layout_room_list_item_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="RoomTitle" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -48,13 +60,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:text="RoomPrice" />
-
-    <TextView
-        android:id="@+id/layout_room_list_item_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="5dp"
-        tools:text="RoomTitle" />
 
     <TextView
         android:id="@+id/layout_room_list_item_description"
