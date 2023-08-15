@@ -2,4 +2,9 @@
 <resources>
    <string name="hotel_detail_booking_button"></string>
    <string name="layout_booking_book_button">Đặt phòng</string>
+   <string name="layout_booking_pick_date">Chọn ngày</string>
+   <string name="layout_booking_pick_time">Chọn giờ</string>
+   <string name="layout_booking_pick_date_btn">Chọn ngày</string>
+   <string name="booking_pick_date_confirm">OK</string>
+    <string name="booking_detail_confirm_button">XÁC NHẬN</string>
 </resources>

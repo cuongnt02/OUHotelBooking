@@ -46,6 +46,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             + BookingDb.COLUMN_CHECK_IN + " text, "
             + BookingDb.COLUMN_CHECK_OUT + " text, "
             + BookingDb.COLUMN_TOTAL_PRICE + " double, "
+            + BookingDb.COLUMN_FK_ROOM + " integer,"
             + "foreign key(" + BookingDb.COLUMN_FK_ROOM + ")"
             + " references " + RoomDb.TABLE_ROOM
             + "(" + RoomDb.COLUMN_ID + ") on delete cascade"
