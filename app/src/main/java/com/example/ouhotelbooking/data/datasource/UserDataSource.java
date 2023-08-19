@@ -32,6 +32,7 @@ public class UserDataSource {
     }
 
     public User createUser(User user) {
+        if (getUser(user.getUsername()) != null) return null;
         ContentValues userValues = createUserValues(user);
 
         long insertId = database.insert(UserDb.TABLE_USER, null, userValues);
@@ -51,6 +52,19 @@ public class UserDataSource {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public User getUser(String username) {
+        DbUtils dbUtils = new DbUtils(this.database);
+        try (Cursor cursor = dbUtils.queryAllColumns(UserDb.TABLE_USER,
+                UserDb.COLUMN_USERNAME + " like ?",
+                new String[]{username})) {
+            cursor.moveToFirst();
+            if (cursor.getCount() == 0) return null;
+            return cursorToUser(cursor);
+        } catch (RangeSupressException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<User> getUsers() {

@@ -12,7 +12,7 @@
         android:id="@+id/layout_booking_confirm_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/material_dynamic_neutral_variant90"
+        android:background="#000000FA"
         android:text="@string/layout_booking_pick_date_btn"
         android:textColor="@color/black"
         app:cornerRadius="1dp"

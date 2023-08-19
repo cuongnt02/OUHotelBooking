@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">OUHotelBooking</string>
+    <string name="app_name">OU Hotel Booking</string>
     <string name="edit_hotel_description_hint">Enter Hotel Address Here...</string>
     <string name="admin_room_room_desc_hint">Enter room description here</string>
     <string name="admin_room_edit_price_hint">Enter Room Price...</string>
     <string name="edit_user_name">User Name</string>
+    <string name="user_pref">user_data</string>
+    <string name="logout">Logout</string>
 </resources>
