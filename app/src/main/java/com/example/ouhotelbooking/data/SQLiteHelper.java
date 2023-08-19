@@ -7,9 +7,11 @@ import android.util.Log;
 
 import com.example.ouhotelbooking.data.model.Hotel;
 import com.example.ouhotelbooking.data.model.Room;
+import com.example.ouhotelbooking.data.model.User;
 import com.example.ouhotelbooking.data.schema.BookingDb;
 import com.example.ouhotelbooking.data.schema.HotelDb;
 import com.example.ouhotelbooking.data.schema.RoomDb;
+import com.example.ouhotelbooking.data.schema.UserDb;
 
 import java.util.ConcurrentModificationException;
 
@@ -52,6 +54,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             + "(" + RoomDb.COLUMN_ID + ") on delete cascade"
             + ");";
 
+    public static final String CREATE_TABLE_USER = "create table "
+            + UserDb.TABLE_USER + " ("
+            + "_id integer primary key autoincrement, "
+            + UserDb.COLUMN_USERNAME + " text, "
+            + UserDb.COLUMN_PASSWORD + " text, "
+            + UserDb.COLUMN_NAME + " text, "
+            + UserDb.COLUMN_PHONE_NUMBER + " text, "
+            + UserDb.COLUMN_EMAIL + " text, "
+            + UserDb.COLUMN_USER_ROLE + " text "
+            + ");";
+
     public SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -61,6 +74,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_TABLE_HOTEL);
         sqLiteDatabase.execSQL(CREATE_TABLE_ROOM);
         sqLiteDatabase.execSQL(CREATE_TABLE_BOOKING);
+        sqLiteDatabase.execSQL(CREATE_TABLE_USER);
     }
 
     @Override
