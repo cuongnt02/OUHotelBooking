@@ -13,6 +13,7 @@
         android:textSize="52sp"/>
 
     <Button
+        android:id="@+id/admin_user_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="USER MANAGER"/>
@@ -22,13 +23,5 @@
         android:layout_height="wrap_content"
         android:text="HOTEL MANAGER"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CATEGORY MANAGER" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ROOM MANAGER" />
 
 </LinearLayout>

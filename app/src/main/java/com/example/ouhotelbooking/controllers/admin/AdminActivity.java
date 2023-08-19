@@ -15,6 +15,11 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_admin);
         Button hotelMngButton = (Button) findViewById(R.id.admin_hotel_button);
+        Button userMngButton = (Button) findViewById(R.id.admin_user_button);
+        userMngButton.setOnClickListener(btn -> {
+            Intent intent = new Intent(this, AdminUserActivity.class);
+            startActivity(intent);
+        });
         hotelMngButton.setOnClickListener(btn -> {
             Intent intent = new Intent(this, AdminHotelActivity.class);
             startActivity(intent);
