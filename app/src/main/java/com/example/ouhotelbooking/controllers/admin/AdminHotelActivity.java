@@ -29,24 +29,16 @@ public class AdminHotelActivity extends AppCompatActivity {
     private List<Hotel> hotels;
 
     @Override
-    protected void onStart() {
-        Log.d(TAG, "onStart: ON START CALLED");
+    protected void onResume() {
         hotelDataSource.open();
         hotels = hotelDataSource.getHotels();
-        Log.d(TAG, "onStart: HOTELS SIZE: " + hotels.size());
         if (adapter == null) {
-            Log.d(TAG, "onStart: NULL ADAPTER");
             adapter = new HotelAdapter(this, true);
             adapter.setHotels(hotels);
         } else {
             adapter.setHotels(hotels);
         }
         hotelRecyclerView.setAdapter(adapter);
-        super.onStart();
-    }
-
-    protected void onResume() {
-        Log.d(TAG, "onResume: ON RESUME CALLED");
         super.onResume();
     }
 

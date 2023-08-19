@@ -3,4 +3,5 @@
     <string name="edit_hotel_description_hint">Enter Hotel Address Here...</string>
     <string name="admin_room_room_desc_hint">Enter room description here</string>
     <string name="admin_room_edit_price_hint">Enter Room Price...</string>
+    <string name="edit_user_name">User Name</string>
 </resources>

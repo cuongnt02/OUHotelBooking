@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.ouhotelbooking.constants.UserRole;
 import com.example.ouhotelbooking.data.model.Hotel;
 import com.example.ouhotelbooking.data.model.Room;
 import com.example.ouhotelbooking.data.model.User;
@@ -65,6 +66,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             + UserDb.COLUMN_USER_ROLE + " text "
             + ");";
 
+    public static final String INSERT_ADMIN_ACCOUNT = "insert into "
+            + UserDb.TABLE_USER + "(" + UserDb.COLUMN_USERNAME + ", "
+            + UserDb.COLUMN_PASSWORD + ", "
+            + UserDb.COLUMN_USER_ROLE + ") "
+            + "values('admin', 'admin', '" + UserRole.ADMIN.toString()+ "');";
+
     public SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -75,6 +82,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_TABLE_ROOM);
         sqLiteDatabase.execSQL(CREATE_TABLE_BOOKING);
         sqLiteDatabase.execSQL(CREATE_TABLE_USER);
+        sqLiteDatabase.execSQL(INSERT_ADMIN_ACCOUNT);
     }
 
     @Override
@@ -85,6 +93,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("drop table if exists " + HotelDb.TABLE_HOTEL);
         sqLiteDatabase.execSQL("drop table if exists " + RoomDb.TABLE_ROOM);
         sqLiteDatabase.execSQL("drop table if exists " + BookingDb.TABLE_BOOKING);
+        sqLiteDatabase.execSQL("drop table if exists " + UserDb.TABLE_USER);
         onCreate(sqLiteDatabase);
     }
 }

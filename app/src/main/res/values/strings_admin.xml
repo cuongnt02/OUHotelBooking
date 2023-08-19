@@ -3,4 +3,8 @@
 
     <string name="enter_hotel_name_here">Enter hotel name here...</string>
     <string name="admin_room_edit_title_hint">Enter room title here...</string>
+    <string name="admin_edit_password">Password...</string>
+    <string name="admin_edit_phone">Phone...</string>
+    <string name="user_edit_email">Email...</string>
+    <string name="user_edit_name">Name...</string>
 </resources>
