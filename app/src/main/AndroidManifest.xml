@@ -20,21 +20,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controllers.LoginActivity">
+        <activity android:name=".controllers.LoginActivity"
+            android:parentActivityName=".controllers.AuthActivity">
         </activity>
-        <activity android:name=".controllers.RegisterActivity">
+        <activity android:name=".controllers.RegisterActivity"
+            android:parentActivityName=".controllers.AuthActivity">
         </activity>
         <activity android:name=".controllers.SearchActivity">
         </activity>
-        <activity android:name=".controllers.HotelDetailActivity">
+        <activity android:name=".controllers.HotelDetailActivity"
+            android:parentActivityName=".controllers.SearchActivity">
         </activity>
-        <activity android:name=".controllers.RoomChoiceActivity">
+        <activity android:name=".controllers.RoomChoiceActivity"
+            android:parentActivityName=".controllers.HotelDetailActivity">
         </activity>
-        <activity android:name=".controllers.RoomDetailActivity">
+        <activity android:name=".controllers.RoomDetailActivity"
+            android:parentActivityName=".controllers.RoomChoiceActivity">
         </activity>
-        <activity android:name=".controllers.BookingDateActivity">
+        <activity android:name=".controllers.BookingDateActivity"
+            android:parentActivityName=".controllers.RoomDetailActivity">
         </activity>
-        <activity android:name=".controllers.BookingDetailActivity">
+        <activity android:name=".controllers.BookingDetailActivity"
+            android:parentActivityName=".controllers.BookingDateActivity">
         </activity>
         <activity android:name=".controllers.admin.AdminActivity">
         </activity>

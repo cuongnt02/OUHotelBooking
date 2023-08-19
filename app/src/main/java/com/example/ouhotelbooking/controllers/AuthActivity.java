@@ -1,12 +1,11 @@
 package com.example.ouhotelbooking.controllers;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ouhotelbooking.R;
@@ -34,11 +33,10 @@ public class AuthActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        adminButton = findViewById(R.id.test_button_admin);
-        adminButton.setOnClickListener(btn -> {
-            Intent intent = new Intent(this, AdminActivity.class);
-            startActivity(intent);
-        });
+
+        ActionBar authActionBar = getSupportActionBar();
+        authActionBar.hide();
+
     }
 
 

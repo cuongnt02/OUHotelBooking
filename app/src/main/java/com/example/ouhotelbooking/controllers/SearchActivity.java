@@ -1,7 +1,13 @@
 package com.example.ouhotelbooking.controllers;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -53,4 +59,26 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setAdapter(hotelAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu_layout, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            SharedPreferences userPrefs = getSharedPreferences(getString(R.string.user_pref),
+                    Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = userPrefs.edit();
+            editor.putBoolean("active", false);
+            editor.commit();
+            Intent intent = new Intent(this, AuthActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
