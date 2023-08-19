@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
 
     <Button
         android:id="@+id/layout_booking_confirm_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/material_dynamic_neutral_variant90"
         android:text="@string/layout_booking_pick_date_btn"
-        tools:text="PICK DATE"/>
+        android:textColor="@color/black"
+        app:cornerRadius="1dp"
+        tools:text="Mở chọn ngày"
+        android:textSize="16sp"/>
 
     <Spinner
         android:id="@+id/layout_booking_days"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/layout_booking_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/booking_pick_date_confirm"
-        />
-
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#e15f41"
+        android:text="@string/booking_pick_date_confirm" />
 
 </LinearLayout>
