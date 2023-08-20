@@ -45,17 +45,23 @@
         </activity>
         <activity android:name=".controllers.admin.AdminActivity">
         </activity>
-        <activity android:name=".controllers.admin.AdminHotelActivity">
+        <activity android:name=".controllers.admin.AdminHotelActivity"
+            android:parentActivityName=".controllers.admin.AdminActivity">
         </activity>
-        <activity android:name=".controllers.admin.EditHotelActivity">
+        <activity android:name=".controllers.admin.EditHotelActivity"
+            android:parentActivityName=".controllers.admin.AdminHotelActivity">
         </activity>
-        <activity android:name=".controllers.admin.AdminRoomActivity">
+        <activity android:name=".controllers.admin.AdminRoomActivity"
+            android:parentActivityName=".controllers.admin.AdminActivity">
         </activity>
-        <activity android:name=".controllers.admin.EditRoomActivity">
+        <activity android:name=".controllers.admin.EditRoomActivity"
+            android:parentActivityName=".controllers.admin.AdminRoomActivity">
         </activity>
-        <activity android:name=".controllers.admin.AdminUserActivity">
+        <activity android:name=".controllers.admin.AdminUserActivity"
+            android:parentActivityName=".controllers.admin.AdminActivity">
         </activity>
-        <activity android:name=".controllers.admin.EditUserActivity">
+        <activity android:name=".controllers.admin.EditUserActivity"
+            android:parentActivityName=".controllers.admin.AdminUserActivity">
         </activity>
         <meta-data
             android:name="preloaded_fonts"

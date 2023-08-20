@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/admin_hotel_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <Button
-        android:id="@+id/admin_create_hotel"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/admin_no_hotel_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CREATE"/>
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@string/admin_no_hotel_prompt"/>
+
+        <Button
+            android:id="@+id/admin_create_hotel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/admin_btn_add_hotel" />
+    </LinearLayout>
+
 
 </LinearLayout>
