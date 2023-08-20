@@ -49,6 +49,11 @@ public class RoomDataSource {
 
     }
 
+    public void deleteRoom(Room room) {
+        database.delete(RoomDb.TABLE_ROOM, RoomDb.COLUMN_ID + "=?",
+                new String[]{String.valueOf(room.getId())});
+    }
+
 
     public List<Room> getRooms(int hotelId) {
         List<Room> rooms = new ArrayList<>();

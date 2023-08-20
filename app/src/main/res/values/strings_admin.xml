@@ -7,4 +7,6 @@
     <string name="admin_edit_phone">Phone...</string>
     <string name="user_edit_email">Email...</string>
     <string name="user_edit_name">Name...</string>
+    <string name="admin_hotel_room_watch">Xem phòng</string>
+    <string name="admin_btn_add_hotel">Tạo khách sạn</string>
 </resources>

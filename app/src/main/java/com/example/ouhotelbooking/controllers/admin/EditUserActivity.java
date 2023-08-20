@@ -1,16 +1,22 @@
 package com.example.ouhotelbooking.controllers.admin;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ouhotelbooking.R;
+import com.example.ouhotelbooking.controllers.AuthActivity;
 import com.example.ouhotelbooking.data.datasource.UserDataSource;
 import com.example.ouhotelbooking.data.model.User;
 
@@ -93,5 +99,39 @@ public class EditUserActivity extends AppCompatActivity {
                 new String[]{"User", "Admin"});
         userRoleSpinner.setAdapter(userRoles);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.admin_menu_edit, menu);
+        if (this.getIntent().getIntExtra(EXTRA_USER_ID, 0) == 0) {
+            MenuItem item = menu.findItem(R.id.action_delete);
+            item.setVisible(false);
+            invalidateOptionsMenu();
+        }
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            SharedPreferences userPrefs = getSharedPreferences(getString(R.string.user_pref),
+                    Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = userPrefs.edit();
+            editor.putBoolean("active", false);
+            editor.commit();
+            Intent intent = new Intent(this, AuthActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.action_delete) {
+            deleteUser();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void deleteUser() {
+        if (user != null) {
+            userDataSource.deleteUser(user);
+        }
+        finish();
     }
 }

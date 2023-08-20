@@ -1,12 +1,16 @@
 package com.example.ouhotelbooking.controllers.admin;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,11 +20,13 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ouhotelbooking.R;
 import com.example.ouhotelbooking.constants.RoomType;
+import com.example.ouhotelbooking.controllers.AuthActivity;
 import com.example.ouhotelbooking.data.datasource.RoomDataSource;
 import com.example.ouhotelbooking.data.model.Room;
 import com.example.ouhotelbooking.utils.DbBitmapUtil;
@@ -41,8 +47,6 @@ public class EditRoomActivity extends AppCompatActivity {
     private EditText roomPriceEdit;
     private Spinner roomTypeSpinner;
     private ImageView roomImage;
-    private Button chooseImageButton;
-    private Button deleteRoomButton;
     private Room room;
     private RoomDataSource roomDataSource;
     private Bitmap bitmap;
@@ -102,8 +106,6 @@ public class EditRoomActivity extends AppCompatActivity {
         roomDescriptionEdit = (EditText) findViewById(R.id.admin_room_room_desc);
         roomPriceEdit = (EditText) findViewById(R.id.admin_room_room_price);
         roomTypeSpinner = (Spinner) findViewById(R.id.admin_room_room_type);
-        chooseImageButton = (Button) findViewById(R.id.admin_room_image_button);
-        deleteRoomButton = (Button) findViewById(R.id.admin_room_delete_room);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
@@ -122,11 +124,7 @@ public class EditRoomActivity extends AppCompatActivity {
             roomImage.setImageBitmap(DbBitmapUtil.getImage(room.getPicture()));
             roomTypeSpinner.setSelection(adapter.getPosition(room.getType()));
         }
-        chooseImageButton.setOnClickListener(btn -> {
-            Intent intent = new Intent(Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(intent, 0);
-        });
+
         roomDataSource.close();
 
 
@@ -146,6 +144,49 @@ public class EditRoomActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.admin_menu_edit, menu);
+        if (this.getIntent().getIntExtra(EXTRA_ROOM, 0) == 0) {
+            MenuItem item = menu.findItem(R.id.action_delete);
+            item.setVisible(false);
+            invalidateOptionsMenu();
+        }
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            SharedPreferences userPrefs = getSharedPreferences(getString(R.string.user_pref),
+                    Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = userPrefs.edit();
+            editor.putBoolean("active", false);
+            editor.commit();
+            Intent intent = new Intent(this, AuthActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.action_delete) {
+            deleteRoom();
+        }
+        if (id == R.id.action_upload) {
+            uploadImage();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void deleteRoom() {
+        if (room != null) {
+            roomDataSource.deleteRoom(room);
+        }
+        finish();
+    }
+
+    public void uploadImage() {
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, 0);
     }
 }
 

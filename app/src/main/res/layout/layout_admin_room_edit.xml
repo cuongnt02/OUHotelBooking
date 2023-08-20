@@ -38,17 +38,4 @@
         android:hint="@string/admin_room_edit_price_hint"
         />
 
-    <Button
-        android:id="@+id/admin_room_image_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose image"/>
-
-    <Button
-        android:id="@+id/admin_room_delete_room"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="delete"/>
-
-
 </LinearLayout>
