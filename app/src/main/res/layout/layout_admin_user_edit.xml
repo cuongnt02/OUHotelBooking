@@ -5,28 +5,92 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/username" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/admin_user_edit_username"
         android:hint="@string/edit_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/password" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/admin_user_edit_password"
         android:hint="@string/admin_edit_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"/>
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/name" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/admin_user_edit_name"
         android:hint="@string/user_edit_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/phone_number" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/admin_user_edit_phone"
         android:hint="@string/admin_edit_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="phone"/>
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/email" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/admin_user_edit_email"
         android:hint="@string/user_edit_email"
@@ -35,6 +99,17 @@
         android:inputType="textEmailAddress"
         />
 
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/user_role" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <Spinner
         android:id="@+id/admin_user_edit_role"
         android:layout_width="wrap_content"

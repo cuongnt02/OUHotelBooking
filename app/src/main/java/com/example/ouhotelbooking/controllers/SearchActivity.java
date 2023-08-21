@@ -1,15 +1,19 @@
 package com.example.ouhotelbooking.controllers;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +25,7 @@ import com.example.ouhotelbooking.data.model.Hotel;
 import com.example.ouhotelbooking.data.model.Room;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchActivity extends AppCompatActivity {
     private HotelAdapter hotelAdapter;
@@ -29,6 +34,8 @@ public class SearchActivity extends AppCompatActivity {
     private RoomDataSource roomDataSource;
 
     private RecyclerView recyclerView;
+    private SearchView searchView;
+    private List<Hotel> hotels;
 
     @Override
     protected void onResume() {
@@ -45,19 +52,49 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        hotelDataSource.open();
+        roomDataSource.open();
+        hotels = hotelDataSource.getHotels();
+        updateList(hotels);
+        super.onStart();
+    }
+
+    private void updateList(List<Hotel> hotelList) {
+        if (hotelAdapter == null) {
+            hotelAdapter = new HotelAdapter(this);
+        }
+        hotelAdapter.setHotels(hotelList);
+        recyclerView.setAdapter(hotelAdapter);
+
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_search);
         hotelDataSource = new HotelDataSource(this);
-        hotelDataSource.open();
         roomDataSource = new RoomDataSource(this);
-        roomDataSource.open();
-        List<Hotel> hotels = hotelDataSource.getHotels();
         recyclerView = (RecyclerView) findViewById(R.id.list_hotels);
-        hotelAdapter = new HotelAdapter(this);
-        hotelAdapter.setHotels(hotels);
-        recyclerView.setAdapter(hotelAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        searchView = findViewById(R.id.searchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (!newText.isEmpty()) {
+                    updateList(hotels.stream().filter(hotel -> hotel.getName().contains(newText))
+                            .collect(Collectors.toList()));
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
