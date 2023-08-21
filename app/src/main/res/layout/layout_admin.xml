@@ -5,23 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="ADMIN VIEW"
-        android:textSize="52sp"/>
+        android:text="@string/admin_title_text"
+        android:textSize="52sp"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/admin_user_button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="USER MANAGER"/>
+        android:text="@string/user_manager_button"/>
     <Button
         android:id="@+id/admin_hotel_button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="HOTEL MANAGER"/>
+        android:text="@string/hotel_manager_button"/>
 
 
 </LinearLayout>

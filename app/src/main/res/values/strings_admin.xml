@@ -9,4 +9,21 @@
     <string name="user_edit_name">Name...</string>
     <string name="admin_hotel_room_watch">Xem phòng</string>
     <string name="admin_btn_add_hotel">Tạo khách sạn</string>
+    <string name="user_manager_button">Quản lí User</string>
+    <string name="admin_title_text">GIAO DIỆN QUẢN TRỊ VIÊN</string>
+    <string name="hotel_image">Hotel Image</string>
+    <string name="hotel_image_text">Hình ảnh khách sạn</string>
+    <string name="hotel_name">Tên khách sạn</string>
+    <string name="hotel_description">Thông tin khách sạn</string>
+    <string name="room_image">Hình ảnh phòng</string>
+    <string name="room_name">Tên phòng</string>
+    <string name="room_desc">Đặc tả phòng</string>
+    <string name="room_type">Loại phòng</string>
+    <string name="room_price">Giá phòng</string>
+    <string name="username">Tên tài khoản</string>
+    <string name="password">Mật khẩu</string>
+    <string name="name">Tên người dùng</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="email">Email</string>
+    <string name="user_role">Quyền</string>
 </resources>

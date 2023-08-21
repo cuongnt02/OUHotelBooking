@@ -1,41 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/room_image" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/admin_room_room_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="10dp"
-        />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="30dp" />
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/room_name" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/admin_room_room_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/admin_room_edit_title_hint"/>
+        android:hint="@string/admin_room_edit_title_hint" />
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/room_desc" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/admin_room_room_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/admin_room_room_desc_hint"/>
+        android:hint="@string/admin_room_room_desc_hint" />
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/room_type" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Spinner
         android:id="@+id/admin_room_room_type"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/room_price" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/admin_room_room_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
         android:hint="@string/admin_room_edit_price_hint"
-        />
+        android:inputType="numberDecimal" />
 
 </LinearLayout>
