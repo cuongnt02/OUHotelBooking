@@ -116,7 +116,6 @@ public class BookingDataSource {
 
     private ContentValues createBookingValues(Booking booking) {
         ContentValues values = new ContentValues();
-        values.put(BookingDb.COLUMN_ID, booking.getId());
         values.put(BookingDb.COLUMN_CHECK_IN, DateFormatterUtils.formatDate(booking.getCheckIn()));
         values.put(BookingDb.COLUMN_CHECK_OUT, DateFormatterUtils.formatDate(booking.getCheckOut()));
         values.put(BookingDb.COLUMN_TOTAL_PRICE, booking.getTotalPrice());

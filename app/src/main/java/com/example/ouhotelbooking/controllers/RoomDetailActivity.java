@@ -9,6 +9,7 @@ import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ouhotelbooking.R;
 import com.example.ouhotelbooking.data.datasource.RoomDataSource;
 import com.example.ouhotelbooking.data.model.Room;
+import com.example.ouhotelbooking.utils.DbBitmapUtil;
 
 import org.w3c.dom.Text;
 
@@ -27,6 +29,8 @@ public class RoomDetailActivity extends AppCompatActivity {
     private TextView roomDetailTitle;
     private TextView roomDetailDescription;
     private Button pickDateButton;
+    private TextView priceText;
+    private ImageView roomImage;
 
     private RoomDataSource roomDataSource;
 
@@ -58,6 +62,10 @@ public class RoomDetailActivity extends AppCompatActivity {
         roomDetailTitle = (TextView) findViewById(R.id.room_detail_type);
         roomDetailDescription = (TextView) findViewById(R.id.room_detail_description);
         pickDateButton = (Button) findViewById(R.id.pick_date_button);
+        priceText = findViewById(R.id.price);
+        priceText.setText(Double.toString(room.getPrice()) + "VND");
+        roomImage = findViewById(R.id.imageView);
+        roomImage.setImageBitmap(DbBitmapUtil.getImage(room.getPicture()));
         roomDetailTitle.setText(room.getType());
         roomDetailDescription.setText(room.getDescription());
         pickDateButton.setOnClickListener(btn -> {

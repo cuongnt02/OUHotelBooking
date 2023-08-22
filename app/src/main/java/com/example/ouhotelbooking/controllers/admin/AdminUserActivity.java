@@ -28,7 +28,6 @@ public class AdminUserActivity extends AppCompatActivity {
 
     private RecyclerView userRecyclerView;
     private UserDataSource userDataSource;
-    private Button createUserButton;
     private UserAdapter userAdapter;
 
     @Override
@@ -59,13 +58,6 @@ public class AdminUserActivity extends AppCompatActivity {
         userDataSource = new UserDataSource(this);
         userRecyclerView = findViewById(R.id.admin_user_list);
         userRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        createUserButton = findViewById(R.id.admin_user_create);
-        createUserButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createUser();
-            }
-        });
 
     }
     @Override

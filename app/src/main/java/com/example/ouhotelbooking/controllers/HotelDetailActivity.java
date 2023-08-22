@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,12 +19,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ouhotelbooking.R;
 import com.example.ouhotelbooking.data.datasource.HotelDataSource;
 import com.example.ouhotelbooking.data.model.Hotel;
+import com.example.ouhotelbooking.utils.DbBitmapUtil;
 
 public class HotelDetailActivity extends AppCompatActivity {
     public static final String EXTRA_HOTEL = "com.ntc.ouhotelbooking.controllers.hotel";
     private TextView hotelDetailTitle;
     private TextView hotelDetailAddress;
     private Button hotelDetailButton;
+    private ImageView hotelImageView;
 
     public static Intent createIntent(Context packageContext, int hotelId) {
         Intent intent = new Intent(packageContext, HotelDetailActivity.class);
@@ -39,10 +42,13 @@ public class HotelDetailActivity extends AppCompatActivity {
         hotelDataSource.open();
         Hotel hotel = hotelDataSource.getHotel(this.getIntent().getIntExtra(EXTRA_HOTEL, 0));
 //        hotelDataSource.close();
+        hotelImageView = findViewById(R.id.imageView);
         hotelDetailTitle = (TextView) findViewById(R.id.hotel_detail_title);
         hotelDetailAddress = (TextView) findViewById(R.id.hotel_detail_address);
         hotelDetailButton = (Button) findViewById(R.id.booking_button);
         hotelDetailTitle.setText(hotel.getName());
+        hotelDetailAddress.setText(hotel.getDescription());
+        hotelImageView.setImageBitmap(DbBitmapUtil.getImage(hotel.getPicture()));
         hotelDetailButton.setOnClickListener(btn -> {
             Intent intent = RoomChoiceActivity.createIntent(this, hotel.getId());
             startActivity(intent);
