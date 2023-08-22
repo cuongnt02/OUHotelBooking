@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp">
 
         <TextView
             android:id="@+id/layout_search_list_item_title"

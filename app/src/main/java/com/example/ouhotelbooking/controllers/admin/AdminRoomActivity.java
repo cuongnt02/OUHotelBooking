@@ -32,7 +32,6 @@ public class AdminRoomActivity extends AppCompatActivity {
 
     private HotelDataSource hotelDataSource;
     private RoomDataSource roomDataSource;
-    private Button createRoomButton;
 
     public static Intent createIntent(Context packageContext,int hotelId) {
         Intent intent = new Intent(packageContext, AdminRoomActivity.class);
@@ -45,7 +44,7 @@ public class AdminRoomActivity extends AppCompatActivity {
         hotelDataSource.open();
         roomDataSource.open();
         Hotel hotel = hotelDataSource.getHotel(this.getIntent().getIntExtra(EXTRA_HOTEL, 0));
-        List<Room> rooms = roomDataSource.getHotelRooms(hotel.getId());
+        List<Room> rooms = roomDataSource.getRooms(hotel.getId());
         if (roomAdapter == null) {
             roomAdapter = new RoomAdapter(this, true);
         } else {
@@ -68,14 +67,10 @@ public class AdminRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_admin_room);
         roomRecyclerView = (RecyclerView) findViewById(R.id.admin_room_list);
-        createRoomButton = (Button) findViewById(R.id.admin_room_create_button);
         roomRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         hotelDataSource = new HotelDataSource(this);
         roomDataSource = new RoomDataSource(this);
 
-        createRoomButton.setOnClickListener(btn -> {
-            createRoom();
-        });
 
     }
     @Override
